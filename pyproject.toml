@@ -1,0 +1,30 @@
+[project]
+name = "tradeassistant"
+version = "0.1.0"
+description = "TradeAssistant monitors tickers, computes indicators, and generates reports"
+authors = [{name="Codex", email="codex@example.com"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "numpy",
+    "yfinance",
+    "pydantic",
+    "APScheduler",
+    "typer",
+    "markdown",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib"]
+dev = ["pytest", "pytest-cov", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.pytest.ini_options]
+addopts = ""
+markers = ["e2e: end-to-end tests"]

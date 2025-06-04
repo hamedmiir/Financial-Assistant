@@ -1,0 +1,7 @@
+[general]
+timezone = "Europe/Berlin"
+data_provider = "yfinance"
+symbols = ["AAPL", "MSFT", "BTC-USD", "ETH-USD"]
+
+[scheduler]
+hour_utc = 15
