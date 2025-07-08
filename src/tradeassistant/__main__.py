@@ -11,7 +11,10 @@ from .data import load_data
 from .report import save_markdown, to_markdown
 from .storage import init_db, insert_ohlcv, insert_report
 
+from .pricebot import run as run_pricebot
+
 app = typer.Typer()
+cli = app
 
 
 @app.command()
@@ -47,6 +50,15 @@ def main(config: Path = typer.Option(Path("config.toml"), "--config"), run_once:
             typer.echo("Exiting")
     else:
         typer.echo("Specify --run-once or --daemon")
+
+
+@app.command()
+def pricebot(interval: int = 300, symbol: str = "BTC-USD") -> None:
+    """Print current price and change every few minutes."""
+    try:
+        run_pricebot(interval=interval, symbol=symbol)
+    except KeyboardInterrupt:
+        typer.echo("Exiting")
 
 
 if __name__ == "__main__":
