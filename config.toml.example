@@ -1,7 +1,9 @@
 [general]
 timezone = "Europe/Berlin"
-data_provider = "yfinance"
+data_provider = "yfinance" # or "coinbase" or "csv"
 symbols = ["AAPL", "MSFT", "BTC-USD", "ETH-USD"]
+
+# If using the Coinbase provider set COINBASE_API_KEY in the environment.
 
 [scheduler]
 hour_utc = 15
